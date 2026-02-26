@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Diagnostic - Deal Heaven</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div style="padding: 40px; font-family: monospace;">
+    <h1>CSS DIAGNOSTIC PAGE</h1>
+    <p>This page will help identify if CSS is loading correctly.</p>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Test 1: CSS File Loading</h2>
+    <div id="cssTest" style="background: red; padding: 20px;">
+      <p><strong>If this box has a red background, inline styles work but CSS file may not be loading.</strong></p>
+      <p><strong>If this box has NO background or different styling, CSS is loading!</strong></p>
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Test 2: CSS Variables</h2>
+    <p style="color: var(--accent); font-size: 20px; font-weight: bold;">
+      This text should be HOT PINK (#ff69b4) if CSS variables are working
+    </p>
+    <p style="color: var(--primary); font-size: 18px;">
+      This text should be BLACK if CSS variables are working
+    </p>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Test 3: CSS Classes</h2>
+    <div class="container">
+      <p><strong>Container class:</strong> If this has max-width and center alignment, container class works</p>
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Test 4: Button Styles</h2>
+    <button class="btn btn-accent" style="margin: 10px;">Accent Button (should be pink)</button>
+    <button class="btn btn-primary" style="margin: 10px;">Primary Button (should be black)</button>
+    <button class="btn btn-secondary" style="margin: 10px;">Secondary Button (should be white)</button>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Test 5: Header Component</h2>
+    <header>
+      <div class="header-top">
+        <div class="container">
+          Test Header Top - Should have black background and white text
+        </div>
+      </div>
+      <div class="header-main">
+        <div class="header-container">
+          <div class="logo">DEAL HEAVEN</div>
+        </div>
+      </div>
+    </header>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Test 6: JavaScript Check</h2>
+    <div id="jsTest">
+      <p style="color: red;"><strong>JavaScript NOT loaded</strong></p>
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Debug Information</h2>
+    <div id="debugInfo" style="background: #f0f0f0; padding: 20px; border: 1px solid #ccc;">
+      <p><strong>Page Location:</strong> <span id="pageUrl"></span></p>
+      <p><strong>CSS File Path:</strong> css/styles.css (relative)</p>
+      <p><strong>Expected Full Path:</strong> <span id="cssPath"></span></p>
+    </div>
+    
+    <hr style="margin: 30px 0;">
+    
+    <h2>Computed Styles Check</h2>
+    <div id="styleCheck" class="container">
+      <p>This div has class="container". Check computed styles below:</p>
+      <ul id="computedStyles"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Test 6 - JavaScript Check
+    document.getElementById('jsTest').innerHTML = '<p style="color: green;"><strong>✓ JavaScript IS loaded and working!</strong></p>';
+    
+    // Debug Info
+    document.getElementById('pageUrl').textContent = window.location.href;
+    document.getElementById('cssPath').textContent = window.location.origin + window.location.pathname.replace('diagnostic.html', 'css/styles.css');
+    
+    // Computed Styles
+    const container = document.getElementById('styleCheck');
+    const computed = window.getComputedStyle(container);
+    const stylesList = document.getElementById('computedStyles');
+    
+    const importantStyles = [
+      'max-width',
+      'margin-left',
+      'margin-right',
+      'padding-left',
+      'padding-right',
+      'background-color',
+      'color'
+    ];
+    
+    importantStyles.forEach(prop => {
+      const li = document.createElement('li');
+      li.textContent = `${prop}: ${computed.getPropertyValue(prop)}`;
+      stylesList.appendChild(li);
+    });
+    
+    // CSS Variables Check
+    const root = document.documentElement;
+    const rootStyles = window.getComputedStyle(root);
+    const accent = rootStyles.getPropertyValue('--accent').trim();
+    const primary = rootStyles.getPropertyValue('--primary').trim();
+    
+    const varsDiv = document.createElement('div');
+    varsDiv.style.cssText = 'margin-top: 20px; padding: 20px; background: #e8f4f8; border: 1px solid #0066cc;';
+    varsDiv.innerHTML = `
+      <h3>CSS Variables Detected:</h3>
+      <ul>
+        <li><strong>--accent:</strong> ${accent || 'NOT FOUND'}</li>
+        <li><strong>--primary:</strong> ${primary || 'NOT FOUND'}</li>
+      </ul>
+      <p style="margin-top: 10px;">
+        ${accent ? '<strong style="color: green;">✓ CSS IS LOADING CORRECTLY!</strong>' : '<strong style="color: red;">✗ CSS NOT LOADING - Variables not found</strong>'}
+      </p>
+    `;
+    document.getElementById('debugInfo').appendChild(varsDiv);
+    
+    // Check if stylesheet is loaded
+    const stylesheets = document.styleSheets;
+    const cssLinksDiv = document.createElement('div');
+    cssLinksDiv.style.cssText = 'margin-top: 20px; padding: 20px; background: #fff3cd; border: 1px solid #ffc107;';
+    cssLinksDiv.innerHTML = '<h3>Loaded Stylesheets:</h3><ul id="stylesheetsList"></ul>';
+    document.getElementById('debugInfo').appendChild(cssLinksDiv);
+    
+    const list = document.getElementById('stylesheetsList');
+    for (let i = 0; i < stylesheets.length; i++) {
+      const li = document.createElement('li');
+      try {
+        li.textContent = stylesheets[i].href || 'Inline styles';
+      } catch(e) {
+        li.textContent = 'Unable to access stylesheet';
+      }
+      list.appendChild(li);
+    }
+  </script>
+</body>
+</html>

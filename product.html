@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product - Deal Heaven</title>
+  <meta name="description" content="Product details">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="container">
+        Free shipping on orders over $100 | 62 Charles Street | Boston, MA 02114 | (617) 248-9910
+      </div>
+    </div>
+    
+    <div class="header-main">
+      <div class="header-container">
+        <a href="index.html" class="logo">DEAL HEAVEN</a>
+        
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="cart.html" class="cart-button">
+            <svg class="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+          
+          <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <a href="shop.html">Shop</a>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span id="productCategory">Loading...</span>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span id="productName">Loading...</span>
+      </div>
+
+      <!-- Product Detail Layout -->
+      <div class="product-detail-layout">
+        <!-- Product Images -->
+        <div class="product-images">
+          <div class="main-image">
+            <img id="productImage" src="" alt="Product Image">
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-detail-info">
+          <h1 id="productTitle">Loading...</h1>
+          
+          <div class="rating-display">
+            <div class="stars" id="productStars"></div>
+            <span class="text-muted" id="productReviews"></span>
+          </div>
+          
+          <p class="product-price-large" id="productPrice">$0.00</p>
+          
+          <p class="product-description" id="productDescription"></p>
+          
+          <!-- Color Selector -->
+          <div class="color-selector" id="colorSection" style="display: none;">
+            <h3>Color</h3>
+            <div class="color-options" id="colorOptions"></div>
+          </div>
+          
+          <!-- Size Selector -->
+          <div class="size-selector" id="sizeSection" style="display: none;">
+            <h3>Size</h3>
+            <div class="size-options" id="sizeOptions"></div>
+          </div>
+          
+          <!-- Quantity Selector -->
+          <div class="quantity-selector">
+            <h3>Quantity</h3>
+            <div class="quantity-controls">
+              <button class="quantity-btn" onclick="decreaseQuantity()">−</button>
+              <div class="quantity-value" id="quantityValue">1</div>
+              <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+            </div>
+          </div>
+          
+          <!-- Actions -->
+          <div class="product-actions">
+            <button class="btn btn-accent" id="addToCartBtn" onclick="addCurrentProductToCart()">
+              Add to Cart
+            </button>
+          </div>
+          
+          <!-- Features -->
+          <div class="product-features" id="productFeatures"></div>
+          
+          <!-- Specifications -->
+          <div class="product-specs" id="productSpecs"></div>
+        </div>
+      </div>
+      
+      <!-- Related Products -->
+      <div class="section-header">
+        <h2>You May Also Like</h2>
+        <p>Similar items you might be interested in</p>
+      </div>
+      
+      <div class="products-grid" id="relatedProducts"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Deal Heaven</h3>
+          <p>Your destination for premium fashion and lifestyle products.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=Dresses">Dresses</a></li>
+            <li><a href="shop.html?category=Tops">Tops</a></li>
+            <li><a href="shop.html?category=Bottoms">Bottoms</a></li>
+            <li><a href="shop.html?category=Jackets">Jackets</a></li>
+            <li><a href="shop.html?category=Jewelry">Jewelry</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Information</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+            <li><a href="returns.html">Returns & Exchanges</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="order-tracking.html">Track Order</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Deal Heaven. All rights reserved.</p>
+        <div class="payment-icons">
+          <span>We accept: Visa • Mastercard • American Express • PayPal • Cash on Delivery</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  
+  <script>
+    let selectedProduct = null;
+    let selectedSize = null;
+    let selectedColor = null;
+    let quantity = 1;
+
+    // Load product from URL parameter
+    function loadProduct() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      
+      if (!productId) {
+        window.location.href = 'shop.html';
+        return;
+      }
+      
+      selectedProduct = getProductById(productId);
+      
+      if (!selectedProduct) {
+        window.location.href = 'shop.html';
+        return;
+      }
+      
+      displayProduct();
+      loadRelatedProducts();
+    }
+
+    function displayProduct() {
+      document.getElementById('productTitle').textContent = selectedProduct.name;
+      document.getElementById('productName').textContent = selectedProduct.name;
+      document.getElementById('productCategory').textContent = selectedProduct.category;
+      document.getElementById('productPrice').textContent = formatCurrency(selectedProduct.price);
+      document.getElementById('productDescription').textContent = selectedProduct.description;
+      document.getElementById('productImage').src = selectedProduct.image;
+      document.getElementById('productImage').alt = selectedProduct.name;
+      
+      // Rating
+      const starsHtml = renderStars(selectedProduct.rating);
+      document.getElementById('productStars').innerHTML = starsHtml;
+      document.getElementById('productReviews').textContent = `(${selectedProduct.reviews} reviews)`;
+      
+      // Colors
+      if (selectedProduct.colors && selectedProduct.colors.length > 0) {
+        document.getElementById('colorSection').style.display = 'block';
+        const colorOptions = document.getElementById('colorOptions');
+        colorOptions.innerHTML = selectedProduct.colors.map((color, index) => 
+          `<div class="color-option ${index === 0 ? 'selected' : ''}" 
+                style="background-color: ${color}" 
+                onclick="selectColor('${color}', this)"></div>`
+        ).join('');
+        selectedColor = selectedProduct.colors[0];
+      }
+      
+      // Sizes
+      if (selectedProduct.sizes && selectedProduct.sizes.length > 0) {
+        document.getElementById('sizeSection').style.display = 'block';
+        const sizeOptions = document.getElementById('sizeOptions');
+        sizeOptions.innerHTML = selectedProduct.sizes.map((size, index) => 
+          `<button class="size-option ${index === 0 ? 'selected' : ''}" 
+                   onclick="selectSize('${size}', this)">${size}</button>`
+        ).join('');
+        selectedSize = selectedProduct.sizes[0];
+      }
+      
+      // Features
+      if (selectedProduct.features && selectedProduct.features.length > 0) {
+        const featuresHtml = `
+          <h3>Features</h3>
+          <ul>
+            ${selectedProduct.features.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+        `;
+        document.getElementById('productFeatures').innerHTML = featuresHtml;
+      }
+      
+      // Specifications
+      if (selectedProduct.specifications) {
+        const specsHtml = `
+          <h3>Specifications</h3>
+          <div class="specs-grid">
+            ${Object.entries(selectedProduct.specifications).map(([key, value]) => `
+              <div class="spec-row">
+                <div class="spec-label">${key}</div>
+                <div class="spec-value">${value}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        document.getElementById('productSpecs').innerHTML = specsHtml;
+      }
+      
+      // Update button state
+      const addToCartBtn = document.getElementById('addToCartBtn');
+      if (!selectedProduct.inStock) {
+        addToCartBtn.textContent = 'Out of Stock';
+        addToCartBtn.disabled = true;
+        addToCartBtn.classList.remove('btn-accent');
+        addToCartBtn.classList.add('btn-secondary');
+      }
+    }
+
+    function selectColor(color, element) {
+      selectedColor = color;
+      document.querySelectorAll('.color-option').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function selectSize(size, element) {
+      selectedSize = size;
+      document.querySelectorAll('.size-option').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function decreaseQuantity() {
+      if (quantity > 1) {
+        quantity--;
+        document.getElementById('quantityValue').textContent = quantity;
+      }
+    }
+
+    function increaseQuantity() {
+      quantity++;
+      document.getElementById('quantityValue').textContent = quantity;
+    }
+
+    function addCurrentProductToCart() {
+      if (!selectedProduct.inStock) return;
+      
+      cartManager.addToCart(selectedProduct, quantity);
+      quantity = 1;
+      document.getElementById('quantityValue').textContent = quantity;
+    }
+
+    function loadRelatedProducts() {
+      const related = products
+        .filter(p => p.category === selectedProduct.category && p.id !== selectedProduct.id)
+        .slice(0, 4);
+      
+      const container = document.getElementById('relatedProducts');
+      container.innerHTML = related.map(product => `
+        <div class="product-card">
+          <a href="product.html?id=${product.id}">
+            <div class="product-image">
+              <img src="${product.image}" alt="${product.name}" loading="lazy">
+            </div>
+          </a>
+          <div class="product-info">
+            <a href="product.html?id=${product.id}">
+              <h3>${product.name}</h3>
+            </a>
+            <p class="product-price">${formatCurrency(product.price)}</p>
+            ${renderColorDots(product.colors)}
+          </div>
+          <button 
+            class="add-to-bag" 
+            onclick="cartManager.addToCart(products.find(p => p.id === '${product.id}'))"
+            ${!product.inStock ? 'disabled' : ''}
+          >
+            ${product.inStock ? 'Add to bag' : 'Out of stock'}
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // Load product on page load
+    document.addEventListener('DOMContentLoaded', loadProduct);
+  </script>
+</body>
+</html>

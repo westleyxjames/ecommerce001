@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Frequently Asked Questions - Deal Heaven</title>
+  <meta name="description" content="Find answers to common questions about shopping at Deal Heaven.">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .faq-item {
+      background: white;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+      font-weight: 400;
+      color: var(--primary);
+    }
+    .faq-question:hover {
+      background: var(--light-bg);
+    }
+    .faq-question.active {
+      background: var(--light-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-icon {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-question.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .faq-answer.active {
+      padding: 20px 24px;
+      max-height: 1000px;
+    }
+    .faq-category {
+      margin-bottom: 40px;
+    }
+    .faq-category h2 {
+      color: var(--primary);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="container">
+        Have questions? We have answers! | Call us at (617) 248-9910
+      </div>
+    </div>
+    
+    <div class="header-main">
+      <div class="header-container">
+        <a href="index.html" class="logo">DEAL HEAVEN</a>
+        
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="cart.html" class="cart-button">
+            <svg class="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+          
+          <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container-sm">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span>FAQ</span>
+      </div>
+
+      <h1 style="margin-bottom: 20px;">Frequently Asked Questions</h1>
+      <p style="color: var(--muted); margin-bottom: 40px;">
+        Find quick answers to the most common questions about Deal Heaven. Can't find what you're looking for? <a href="contact.html" style="color: var(--accent);">Contact us</a> and we'll be happy to help!
+      </p>
+
+      <!-- Search Box -->
+      <div style="margin-bottom: 40px;">
+        <input 
+          type="text" 
+          id="faqSearch" 
+          placeholder="Search for answers..." 
+          class="form-control"
+          style="max-width: 500px;"
+          onkeyup="searchFAQ()"
+        >
+      </div>
+
+      <!-- Orders & Shipping -->
+      <div class="faq-category">
+        <h2>Orders & Shipping</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How do I track my order?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Once your order ships, you'll receive a confirmation email with a tracking number. You can also track your order on our <a href="order-tracking.html" style="color: var(--accent);">Order Tracking</a> page by entering your order number. Tracking information is typically available within 24 hours of shipment.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>When will my order ship?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            All orders are processed within 1-2 business days (Monday-Friday, excluding holidays). Orders placed on weekends or holidays will be processed on the next business day. You'll receive a shipping confirmation email once your order has been dispatched.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Do you offer free shipping?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Yes! We offer free standard shipping on all orders over $100 within the continental United States. For orders under $100, standard shipping is $10. See our <a href="shipping.html" style="color: var(--accent);">Shipping Policy</a> for more details.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Can I change my shipping address after placing an order?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            If your order hasn't shipped yet, we may be able to update your address. Please contact us immediately at (617) 248-9910. Once an order has shipped, we cannot change the delivery address. In that case, you'll need to contact the carrier directly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Do you ship internationally?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Currently, we only ship within the United States (including Alaska and Hawaii). We're working on expanding our international shipping options. Please check back soon!
+          </div>
+        </div>
+      </div>
+
+      <!-- Returns & Exchanges -->
+      <div class="faq-category">
+        <h2>Returns & Exchanges</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>What is your return policy?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            We offer a 30-day return policy from the date you receive your item. Items must be unworn, unused, in original packaging with all tags attached. Return shipping is free on orders over $100. See our <a href="returns.html" style="color: var(--accent);">Returns & Exchanges</a> page for complete details.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How do I start a return?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Contact our customer service team at returns@dealheaven.site or call (617) 248-9910. Include your order number and the item(s) you wish to return. We'll send you a Return Authorization number and prepaid return label within 24 hours.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How long does it take to get my refund?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Once we receive your return, we'll process your refund within 5-7 business days. Refunds are issued to the original payment method. Credit card refunds typically take 5-10 business days to appear, while PayPal refunds take 3-5 business days.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Can I exchange an item for a different size or color?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Yes! The fastest way is to return the original item and place a new order for what you want. Exchange shipping is always free, even if your original order was under $100. Need it quickly? Mention "Priority Exchange" when requesting your return authorization.
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment & Security -->
+      <div class="faq-category">
+        <h2>Payment & Security</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>What payment methods do you accept?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            We accept Visa, Mastercard, American Express, PayPal, and Cash on Delivery (COD). All credit card transactions are processed through secure, encrypted payment gateways to protect your information.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Is it safe to use my credit card on your site?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Absolutely! We use industry-standard SSL encryption to protect your payment information. We never store your complete credit card details on our servers. All transactions are processed through PCI-compliant payment processors.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Do you offer Cash on Delivery (COD)?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Yes! Cash on Delivery is available for all orders within the continental United States. Simply select "Cash on Delivery" at checkout and pay when you receive your package. Please have exact change ready for the delivery person.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Why was my payment declined?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Payment declines can happen for various reasons: insufficient funds, incorrect card details, expired card, or your bank's fraud protection. Try checking your card details, contacting your bank, or using a different payment method. If problems persist, contact us at (617) 248-9910.
+          </div>
+        </div>
+      </div>
+
+      <!-- Products & Sizing -->
+      <div class="faq-category">
+        <h2>Products & Sizing</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How do I find my size?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Each product page includes detailed size information in the specifications section. Our sizes are true to standard US sizing. If you're between sizes, we recommend ordering the larger size. Still unsure? Contact us and we'll help you choose the right size!
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Are the product photos accurate?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            We strive to display colors and details as accurately as possible. However, colors may vary slightly due to different screen settings and lighting. If you're not satisfied with your purchase, our 30-day return policy has you covered!
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Do you restock sold-out items?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Popular items are usually restocked! Contact us about a specific item, and we'll let you know if and when it's expected to be back in stock. You can also sign up for restock notifications on product pages.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How do I care for my items?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Care instructions are included on each product page in the specifications section and on the care label attached to your item. Generally, we recommend following the care label instructions to keep your items looking their best. When in doubt, gentle hand washing or dry cleaning is safest for delicate items.
+          </div>
+        </div>
+      </div>
+
+      <!-- Account & Orders -->
+      <div class="faq-category">
+        <h2>Account & Orders</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Do I need an account to place an order?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            No, you can checkout as a guest. However, creating an account makes it easier to track your orders, save your shipping address, and get faster checkouts on future purchases.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Can I cancel or modify my order?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Contact us immediately at (617) 248-9910 if you need to cancel or modify your order. If your order hasn't been processed yet, we can make changes. Once an order has shipped, you'll need to return it following our standard return process.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How do I apply a promo code?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            You can enter your promo code during checkout in the "Discount Code" field before completing your purchase. Make sure to click "Apply" to see the discount reflected in your order total. Promo codes cannot be applied to orders after they've been placed.
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact & Support -->
+      <div class="faq-category">
+        <h2>Contact & Support</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How can I contact customer service?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            We're here to help! Contact us via phone at (617) 248-9910 (Mon-Fri, 9AM-8PM EST), email at hello@dealheaven.site, or visit our <a href="contact.html" style="color: var(--accent);">Contact</a> page. We respond to all inquiries within 24 hours.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>Can I visit your physical store?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            Yes! Visit us at 62 Charles Street, Boston, MA 02114. We're open Monday-Friday 10AM-8PM, Saturday 10AM-9PM, and Sunday 11AM-6PM. Come see our latest collections in person!
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <span>How do I sign up for your newsletter?</span>
+            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            You can sign up for our newsletter at the bottom of any page on our website. We'll send you exclusive offers, style tips, and early access to new collections. Don't worry - we won't spam you, and you can unsubscribe anytime!
+          </div>
+        </div>
+      </div>
+
+      <!-- Still Have Questions -->
+      <div style="background: var(--light-bg); padding: 40px; text-align: center; margin-top: 60px;">
+        <h2 style="margin-bottom: 16px;">Still Have Questions?</h2>
+        <p style="color: var(--muted); margin-bottom: 32px;">
+          Can't find the answer you're looking for? We're here to help!
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-accent">Contact Us</a>
+          <a href="tel:6172489910" class="btn btn-secondary">Call (617) 248-9910</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Deal Heaven</h3>
+          <p>Your destination for premium fashion and lifestyle products.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=Dresses">Dresses</a></li>
+            <li><a href="shop.html?category=Tops">Tops</a></li>
+            <li><a href="shop.html?category=Jewelry">Jewelry</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Information</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+            <li><a href="returns.html">Returns & Exchanges</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Deal Heaven. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  
+  <script>
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      const isActive = element.classList.contains('active');
+      
+      // Close all FAQs
+      document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+      
+      // Open clicked FAQ if it wasn't already open
+      if (!isActive) {
+        element.classList.add('active');
+        answer.classList.add('active');
+      }
+    }
+
+    function searchFAQ() {
+      const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = searchTerm === '' ? 'block' : 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

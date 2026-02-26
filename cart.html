@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Deal Heaven</title>
+  <meta name="description" content="Your shopping cart">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <div class="container">
+        Free shipping on orders over $100 | 62 Charles Street | Boston, MA 02114 | (617) 248-9910
+      </div>
+    </div>
+    
+    <div class="header-main">
+      <div class="header-container">
+        <a href="index.html" class="logo">DEAL HEAVEN</a>
+        
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="cart.html" class="cart-button">
+            <svg class="cart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span class="cart-count">0</span>
+          </a>
+          
+          <button class="mobile-menu-button" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span>Shopping Cart</span>
+      </div>
+
+      <!-- Empty Cart State -->
+      <div id="emptyCart" class="empty-cart" style="display: none;">
+        <svg class="feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+        </svg>
+        <h2>Your cart is empty</h2>
+        <p>Add some items to get started</p>
+        <a href="shop.html" class="btn btn-accent">Continue Shopping</a>
+      </div>
+
+      <!-- Cart Layout -->
+      <div id="cartLayout" class="cart-layout">
+        <div>
+          <h1 style="margin-bottom: 32px;">Shopping Cart</h1>
+          <div class="cart-items" id="cartItems"></div>
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+          <h2>Order Summary</h2>
+          
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span id="shipping">$0.00</span>
+          </div>
+          
+          <div class="summary-row">
+            <span>Tax (estimated)</span>
+            <span id="tax">$0.00</span>
+          </div>
+          
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="total">$0.00</span>
+          </div>
+          
+          <a href="checkout.html" class="btn btn-accent">Proceed to Checkout</a>
+          <a href="shop.html" class="btn btn-secondary" style="margin-top: 12px;">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Deal Heaven</h3>
+          <p>Your destination for premium fashion and lifestyle products.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Shop</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=Dresses">Dresses</a></li>
+            <li><a href="shop.html?category=Tops">Tops</a></li>
+            <li><a href="shop.html?category=Bottoms">Bottoms</a></li>
+            <li><a href="shop.html?category=Jackets">Jackets</a></li>
+            <li><a href="shop.html?category=Jewelry">Jewelry</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Information</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+            <li><a href="returns.html">Returns & Exchanges</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="order-tracking.html">Track Order</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Deal Heaven. All rights reserved.</p>
+        <div class="payment-icons">
+          <span>We accept: Visa • Mastercard • American Express • PayPal • Cash on Delivery</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  
+  <script>
+    function renderCart() {
+      const cart = cartManager.getCart();
+      const emptyCart = document.getElementById('emptyCart');
+      const cartLayout = document.getElementById('cartLayout');
+      
+      if (cart.length === 0) {
+        emptyCart.style.display = 'block';
+        cartLayout.style.display = 'none';
+        return;
+      }
+      
+      emptyCart.style.display = 'none';
+      cartLayout.style.display = 'grid';
+      
+      // Render cart items
+      const cartItemsHtml = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-image">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="cart-item-info">
+            <h3>${item.name}</h3>
+            <p class="cart-item-price">${formatCurrency(item.price)}</p>
+            <div class="quantity-controls">
+              <button class="quantity-btn" onclick="updateItemQuantity('${item.id}', ${item.quantity - 1})">−</button>
+              <div class="quantity-value">${item.quantity}</div>
+              <button class="quantity-btn" onclick="updateItemQuantity('${item.id}', ${item.quantity + 1})">+</button>
+            </div>
+          </div>
+          <div class="cart-item-controls">
+            <div style="font-size: 16px; font-weight: 400;">${formatCurrency(item.price * item.quantity)}</div>
+            <span class="cart-item-remove" onclick="removeItem('${item.id}')">Remove</span>
+          </div>
+        </div>
+      `).join('');
+      
+      document.getElementById('cartItems').innerHTML = cartItemsHtml;
+      
+      // Update summary
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const subtotal = cartManager.getCartTotal();
+      const shipping = subtotal >= 100 ? 0 : 10;
+      const tax = subtotal * 0.08;
+      const total = subtotal + shipping + tax;
+      
+      document.getElementById('subtotal').textContent = formatCurrency(subtotal);
+      document.getElementById('shipping').textContent = shipping === 0 ? 'FREE' : formatCurrency(shipping);
+      document.getElementById('tax').textContent = formatCurrency(tax);
+      document.getElementById('total').textContent = formatCurrency(total);
+    }
+
+    function updateItemQuantity(productId, newQuantity) {
+      cartManager.updateQuantity(productId, newQuantity);
+      renderCart();
+    }
+
+    function removeItem(productId) {
+      if (confirm('Remove this item from cart?')) {
+        cartManager.removeFromCart(productId);
+        renderCart();
+      }
+    }
+
+    // Load cart on page load
+    document.addEventListener('DOMContentLoaded', renderCart);
+  </script>
+</body>
+</html>
